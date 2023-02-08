@@ -34,8 +34,21 @@ public class SinglyLinkedDeque<ItemType> implements Deque<ItemType> {
      */
     @Override
     public void addFirst(ItemType item) {
+        size++;
+
         // consider the case of adding to an empty list
+        if (size==0){
+
+            SinglyLinkedDeque.head =item;
+
+        }
         // consider the case of adding to a non-empty list
+        if (size!=0){
+            Node currenthead = this.head;
+            head.data=item;
+            head.next =currenthead;
+        }
+
     }
 
     /**
@@ -89,5 +102,14 @@ public class SinglyLinkedDeque<ItemType> implements Deque<ItemType> {
         // 3. return the variable that has the saved copy of the item at the back
 
         return null;
+    }
+    public String toString(){
+        String result="";
+        Node current=head;
+        while(current != null){
+            result += current.data +" ";
+            current=current.next;
+        }
+        return result;
     }
 }

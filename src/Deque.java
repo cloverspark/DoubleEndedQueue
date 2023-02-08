@@ -34,4 +34,6 @@ public interface Deque<ItemType> {
      * @return item at the back that was just removed, or null if empty
      */
     public ItemType removeLast();
+
+
 }
